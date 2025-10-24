@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register for Event - SVKM Event Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: 700;
+      color: #667eea;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .navbar-links { display: flex; gap: 10px; }
+    .navbar a {
+      color: #4a5568;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .navbar a:hover {
+      background: #667eea;
+      color: white;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .registration-card {
+      background: white;
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    
+    .event-details {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      padding: 30px;
+      border-radius: 16px;
+      margin-bottom: 35px;
+      border-left: 4px solid #667eea;
+    }
+    
+    .event-details h2 {
+      color: #2d3748;
+      margin-bottom: 15px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    
+    .event-details p {
+      margin: 12px 0;
+      line-height: 1.7;
+      color: #4a5568;
+      font-size: 15px;
+    }
+    
+    .event-details strong {
+      color: #667eea;
+      font-weight: 600;
+    }
+    
+    h3 {
+      color: #2d3748;
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    
+    .form-group {
+      margin-bottom: 24px;
+    }
+    
+    label {
+      display: block;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    
+    input[type="file"] {
+      width: 100%;
+      padding: 14px;
+      border: 2px dashed #667eea;
+      border-radius: 12px;
+      background-color: #f7fafc;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    input[type="file"]:hover {
+      border-color: #764ba2;
+      background-color: #edf2f7;
+    }
+    
+    .info-text {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      color: #92400e;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      font-size: 14px;
+      border-left: 4px solid #f59e0b;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .external-link {
+      text-align: center;
+      margin: 30px 0;
+    }
+    
+    .external-link a {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #4299e1;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+    }
+    
+    .external-link a:hover {
+      background: #3182ce;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+    }
+    
+    button {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+    
+    button:disabled {
+      background: #cbd5e0;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .already-registered {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      color: #065f46;
+      border-radius: 16px;
+      font-weight: 600;
+      font-size: 16px;
+      border-left: 4px solid #10b981;
+    }
+    
+    .already-registered i {
+      font-size: 48px;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    
+    .back-link:hover {
+      color: #764ba2;
+    }
+    
+    .error-message {
+      background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+      color: #c53030;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      border-left: 4px solid #f56565;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-brand">
+      <i class="fas fa-clipboard-check"></i> Event Registration
+    </div>
+    <div class="navbar-links">
+      <a href="/student/dashboard"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="registration-card">
+      <div class="event-details">
+        <h2><i class="fas fa-calendar-star"></i> <%= event.title %></h2>
+        <p><%= event.description %></p>
+        <p><i class="far fa-calendar"></i> <strong>Event Date:</strong> <%= new Date(event.event_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></p>
+        <p><i class="far fa-clock"></i> <strong>Registration Deadline:</strong> <%= new Date(event.deadline).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></p>
+      </div>
+
+      <% if (isRegistered) { %>
+        <div class="already-registered">
+          <i class="fas fa-check-circle"></i>
+          You are already registered for this event!
+        </div>
+        <a href="/student/dashboard" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+      <% } else { %>
+        <h3><i class="fas fa-pen"></i> Complete Your Registration</h3>
+        
+        <div class="info-text">
+          <i class="fas fa-info-circle" style="color: #f59e0b; font-size: 20px; margin-top: 2px;"></i>
+          <div>
+            <strong>Important:</strong> First register on the official event link, then upload your registration proof screenshot below.
+          </div>
+        </div>
+
+        <div class="external-link">
+          <a href="<%= event.link %>" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Register on Official Website
+          </a>
+        </div>
+
+        <form id="registrationForm" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="proof"><i class="fas fa-image"></i> Upload Registration Proof (Screenshot)</label>
+            <input type="file" id="proof" name="proof" accept="image/*" required>
+          </div>
+
+          <button type="submit"><i class="fas fa-paper-plane"></i> Submit Registration</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registrationForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData();
+      const fileInput = document.getElementById('proof');
+      formData.append('proof', fileInput.files[0]);
+
+      const button = e.target.querySelector('button');
+      button.disabled = true;
+      button.textContent = 'Submitting...';
+
+      try {
+        const response = await fetch('/api/registration/<%= event.id %>', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          alert('✅ Registration successful!');
+          window.location.href = '/student/dashboard';
+        } else {
+          alert('❌ Error: ' + data.error);
+          button.disabled = false;
+          button.textContent = 'Submit Registration';
+        }
+      } catch (error) {
+        alert('❌ An error occurred. Please try again.');
+        button.disabled = false;
+        button.textContent = 'Submit Registration';
+      }
+    });
+  </script>
+</body>
+</html>
