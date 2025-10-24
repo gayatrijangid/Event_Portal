@@ -11,7 +11,7 @@ console.log('Database:', process.env.DB_NAME || 'event_portal');
 const connection = mysql.createConnection({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'gayu@123',
+  password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'event_portal'
 });
 
