@@ -1,5 +1,5 @@
 -- Create database
-CREATE DATABASE IF NOT EXISTS event_portal;
+CREATE DATABASE IF NOT EXISTS railway;
 USE event_portal;
 
 -- Admin table (stores users with different roles: admin, faculty, student)
