@@ -7,12 +7,6 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000; 
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server is running on port ${PORT}`);
-});
-
-
-
 // Import routes
 const authRoutes = require('./routes/auth');
 const eventRoutes = require('./routes/events');
