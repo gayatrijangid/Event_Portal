@@ -1,7 +1,4 @@
-// Import required packages
-const mysql = require('mysql2');
-require('dotenv').config(); // Load environment variables from .env
-
+const mysql = require('mysql2/promise');
 
 const db = mysql.createPool({
   host: process.env.DB_HOST,
@@ -11,8 +8,15 @@ const db = mysql.createPool({
   port: process.env.DB_PORT
 });
 
-db.getConnection()
-  .then(() => console.log('✅ Connected to MySQL database'))
-  .catch(err => console.error('❌ Error connecting to MySQL:', err.message));
-// Export the connection pool
+// Test the connection
+(async () => {
+  try {
+    const connection = await db.getConnection();
+    console.log('✅ Connected to MySQL database');
+    connection.release(); // release back to pool
+  } catch (err) {
+    console.error('❌ Error connecting to MySQL:', err.message);
+  }
+})();
+
 module.exports = db;
