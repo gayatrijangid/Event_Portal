@@ -50,5 +50,7 @@ coverage/
 # ========================
 # Private config files
 # ========================
-config/
-!config/db.sample.js  # allow only safe sample version to be uploaded
+# Ignore config folder but allow sample file
+config/*
+!config/db.sample.js
+
