@@ -231,19 +231,6 @@ Expected response:
 - Ensure `uploads/` directory exists and is writable
 - Check file size limits (default: 5MB)
 
-## Migration from PHP
-
-This Node.js backend provides equivalent functionality to the original PHP backend:
-
-| PHP File | Node.js Equivalent |
-|----------|-------------------|
-| `config.php` / `dp.php` | `config/db.js` |
-| `login_process.php` | `routes/auth.js` (POST /login) |
-| `signup_process.php` | `routes/auth.js` (POST /signup) |
-| `add_event.php` | `routes/events.js` (POST /) |
-| `edit_event.php` | `routes/events.js` (PUT /:id) |
-| `delete_event.php` | `routes/events.js` (DELETE /:id) |
-| `register_event.php` | `routes/registration.js` (POST /:eventId) |
 
 ## License
 
