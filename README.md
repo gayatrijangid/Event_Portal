@@ -1,6 +1,6 @@
 # Event Portal - Node.js Backend
 
-This is the Node.js backend conversion of the PHP Event Portal application. It provides RESTful API endpoints for managing events, user authentication, and event registrations.
+ It provides RESTful API endpoints for managing events, user authentication, and event registrations.
 
 ## Features
 
